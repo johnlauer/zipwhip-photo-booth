@@ -1,0 +1,52 @@
+
+  	<div id="wrapper">
+  		<span style="left: 15%;background-color: #FFFFFF; border: 5px solid #FFFFFF;-webkit-transform: rotate(-2deg) translateY(-50%);position: absolute;top: 50%;zoom:0.36;height:2300px;width:780px;background-image: url('{{url}}')"></span>
+ 	</div>
+ 	<div style="right: 0px; position: absolute;-webkit-transform: translateY(-50%);position: absolute;top: 40%;height:100%px;width:65%;">
+			<div style="width: 60%; float: left;color: #FFFFFF;">
+			<div style="color: #FFFFFF !important; font-size: 70px; width: 100%; margin-left: auto; margin-right: auto;">
+			<!-- Post your pics with #FindYourRhythmTBC -->
+			</div>
+
+			<div style="margin-top: 50px;color: #FFFFFF !important; font-size: 36px; width: 100%; margin-left: auto; margin-right: auto;">
+			Your photo strip was sent to <br> <span id="phone">{{phone}}</span>. <br><BR>Don't forget to grab the print out.</div>
+
+			<div style="margin-top: 50px;margin-bottom: 50px;color: #FFFFFF !important; font-size: 36px; width: 100%; margin-left: auto; margin-right: auto;">
+
+			</div>
+
+			</div>
+
+ 	</div>
+
+
+<script>
+		var startOverTimeout;
+		var startOverTimeout = setTimeout(function(){
+			document.location = "/?dc="+new Date().getUTCMilliseconds()+"#start";
+		}, 20000);
+		
+
+		$('#phone').text(function(i, text) {
+            return text.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+        });
+
+    	$(document).on('click', function() {
+    		if (startOverTimeout) clearTimeout(startOverTimeout);
+    		$(document).off();
+	  		document.location = "/?dc="+new Date().getUTCMilliseconds()+"#start";
+
+		});
+
+		$(window).on('hashchange', function() {
+
+
+		});
+
+		// Original Zipwhip cloud
+		// $('body').css('background-image', 'url(/images/background-final.png)');
+
+		// Lauer Halloween Party 2017 final bg
+		$('body').css('background-image', 'url(/images/LAUER-background-FINAL.png)');
+
+</script>

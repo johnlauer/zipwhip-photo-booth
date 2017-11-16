@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var debug = require('debug')('photo-booth');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 8081);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+var https = require('https'),      // module for https
+    fs =    require('fs');         // required to read certs and keys
+
+var options = {
+    key:    fs.readFileSync('certs/server.key'),
+    cert:   fs.readFileSync('certs/star_zipwhip_com.crt'),
+    ca:     fs.readFileSync('certs/DigiCertCA.crt'),
+    requestCert:        true,
+    rejectUnauthorized: false
+};
+
+https.createServer(options, app).listen(443);

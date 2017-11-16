@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Zipwhip Photo Booth</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- <script src="html5texttrack.js"></script> -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      var totalFiles = {{ totalFiles }};
+      var url = "";
+    </script>
+  </head>
+
+	
+  <body ng-app="photoBoothApp">
+	<div id="view-container" ng-view></div>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="/javascripts/app.js"></script>
+  <audio id="audio-selfie" src="/audio/selfie.mp3" style="position: absolute; bottom:5px; right: 5px;" controls loop>
+    <p>Your browser does not support the audio element </p>
+  </audio>
+<script>
+  function playSound(el,soundfile) {
+      if (el.mp3) {
+          //if(el.mp3.paused){
+            el.mp3.play();
+          //}
+      } else {
+          el.mp3 = new Audio(soundfile);
+          el.mp3.play();
+      }
+    }
+
+</script>
+  </body>
+</html>

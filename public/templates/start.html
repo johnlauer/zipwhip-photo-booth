@@ -1,0 +1,57 @@
+
+	<div id="wrapper">
+		<div style="position: absolute;top: 40%;transform: translateY(-50%); width: 35%; left: 0;">
+			<div id="photo-1" style="-webkit-transform: rotate(-5deg);height: 280px;width: 360px;background-image: url('/images/booth/{{totalFiles}}.png'); margin-left: auto; margin-right: auto;background-size: 620px 1092px;"></div>
+			<div id="photo-2" style="-webkit-transform: rotate(5deg);height: 280px;width: 360px;background-image: url('/images/booth/{{totalFiles-1}}.png'); margin-left: auto; margin-right: auto;background-size: 620px 1092px;"></div>
+		</div>
+
+		<div style="position: absolute;top: 535px;transform: translateY(-50%); width: 100%;">
+			<!--div style="margin-top: 50px;color: #FFFFFF !important; font-size: 36px; width: 30%; margin-left: auto; margin-right: auto;">We will send your photo strip to you via text from our toll free number!</div-->
+		</div>
+
+		<div style="position: absolute;top: 40%;transform: translateY(-50%);  width: 35%; right: 0;">
+			<div id="photo-3" style="-webkit-transform: rotate(5deg);height: 280px;width: 360px;background-image: url('/images/booth/{{totalFiles-2}}.png'); margin-left: auto; margin-right: auto;background-size: 620px 1092px;"></div>
+			<div id="photo-4" style="-webkit-transform: rotate(-5deg);height: 280px;width: 360px;background-image: url('/images/booth/{{totalFiles-3}}.png'); margin-left: auto; margin-right: auto;background-size: 620px 1092px;"></div>
+		</div>
+	</div>
+
+<script>
+	var positions = [0, '-270px', '-539px', '-814px'];
+	var lastPhotoUpdated = 0;
+	var updatePhotosInterval = setInterval(function(){
+		var photoToUpdate = randomIntFromInterval(1, 4);
+
+		//don't switch the same photo
+		while(photoToUpdate === lastPhotoUpdated){
+			photoToUpdate = randomIntFromInterval(1, 4);
+		}
+
+		lastPhotoUpdated = photoToUpdate;
+
+		$('#photo-'+photoToUpdate).fadeTo(2500, .01, function(){
+		    $(this).css("background-image", "url('/images/booth/"+randomIntFromInterval(0, totalFiles)+".png')");
+		    var position = positions[randomIntFromInterval(0,3)];
+		    $(this).css("background-position", "0 "+position);
+		}).fadeTo(2500, 1);
+		console.log('updated')
+	}, 1000);
+
+
+	$(document).on('click', function() {
+		clearInterval(updatePhotosInterval);
+		$(document).off();
+  		document.location = "#phone";
+	});
+
+	function randomIntFromInterval(min,max)
+	{
+	    return Math.floor(Math.random()*(max-min+1)+min);
+	}
+
+	// Title boxing main background on start screen
+	// $('body').css('background-image', 'url(/images/bigT.jpg)');
+
+	// Lauer Halloween Party 2017 background
+	$('body').css('background-image', 'url(/images/LAUER-background.png)');
+
+</script>

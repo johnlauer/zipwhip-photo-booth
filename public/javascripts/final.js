@@ -1,0 +1,1 @@
+$('body').css('background-image', 'url(/images/background-final.png)');
