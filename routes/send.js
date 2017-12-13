@@ -114,7 +114,7 @@ function sendMessage(storageKey, path, phone) {
   //     'Post your pics with #FindYourRhythmTBC') + '&key=' + storageKey
   var path = '/messaging/send/?session=' + session + '&to=' +
     encodeURIComponent('+1' + phone) + '&body=' + encodeURIComponent(
-      'Lauer Halloween Rager 2017') + '&key=' + storageKey
+      'Zipwhip Christmas Party 2017') + '&key=' + storageKey
 
   var options = {
     host: hostname,

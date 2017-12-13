@@ -266,11 +266,11 @@ function showTimer() {
 function getRandomMessage() {
 	var messagesArray = [];
 
-	messagesArray.push('It\'s Halloween 2017!')
-	messagesArray.push('Show off that costume!')
+	messagesArray.push('Say Zipwhip Christmas Party!')
+	messagesArray.push('Say Hi To Santa!')
 	messagesArray.push('Work it!')
 	messagesArray.push('The camera loves you baby!')
-	messagesArray.push('Lauer Halloween Rager 2017!')
+	messagesArray.push('Zipwhip Christmas Party 2017!')
 	var to = messagesArray.length;
 	var from = 0;
 	return messagesArray[((Math.random() * (to - from) + from).toFixed(0) * 1)];
